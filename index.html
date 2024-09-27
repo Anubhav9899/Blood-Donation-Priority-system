@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Blood Donation Management System</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Blood Donation Management System</h1>
+      <div class="options">
+        <button id="clientBtn">Client</button>
+        <button id="donorBtn">Donor</button>
+      </div>
+
+      <!-- ID Verification Section -->
+      <div id="idVerification" class="hidden">
+        <h2>Verify Your ID</h2>
+        <label for="userID">Enter Your ID:</label>
+        <input type="text" id="userID" placeholder="Enter your ID" required />
+        <button id="verifyIDBtn">Verify ID</button>
+        <div id="verificationResult"></div>
+      </div>
+
+      <!-- Client Section -->
+      <div id="clientSection" class="hidden">
+        <h2>Client Blood Request</h2>
+        <form id="clientForm">
+          <label for="clientBloodType">Blood Type Needed:</label>
+          <select id="clientBloodType" required>
+            <option value="">Select</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+
+          <label for="medicalHistory">Select Your Medical Condition:</label>
+          <select id="medicalHistory" required>
+            <option value="">Select Condition</option>
+            <option value="mass_casualty_incident">
+              Mass Casualty Incident
+            </option>
+            <option value="terrorist_attack">Terrorist Attack</option>
+            <option value="natural_disaster">Natural Disaster</option>
+            <option value="multiple_trauma">Multiple Trauma</option>
+            <option value="severe_burn">Severe Burn</option>
+            <option value="gunshot_wound">Gunshot Wound</option>
+            <option value="stabbing">Stabbing</option>
+            <option value="severe_head_injury">Severe Head Injury</option>
+            <option value="ruptured_aneurysm">Ruptured Aneurysm</option>
+            <option value="postpartum_hemorrhage">Postpartum Hemorrhage</option>
+            <option value="gastrointestinal_bleeding">
+              Gastrointestinal Bleeding
+            </option>
+            <option value="ruptured_ectopic_pregnancy">
+              Ruptured Ectopic Pregnancy
+            </option>
+            <option value="severe_liver_disease">Severe Liver Disease</option>
+            <option value="dengue_hemorrhagic_fever">
+              Dengue Hemorrhagic Fever
+            </option>
+            <option value="emergency_surgery">Emergency Surgery</option>
+            <option value="acute_leukemia">Acute Leukemia</option>
+            <option value="severe_anemia">Severe Anemia</option>
+            <option value="sickle_cell_crisis">Sickle Cell Crisis</option>
+            <option value="thrombotic_thrombocytopenic_purpura">
+              Thrombotic Thrombocytopenic Purpura
+            </option>
+            <option value="cancer_treatment">Cancer Treatment</option>
+            <option value="chronic_anemia">Chronic Anemia</option>
+            <option value="hemophilia">Hemophilia</option>
+            <option value="von_willebrand_disease">
+              Von Willebrand Disease
+            </option>
+            <option value="organ_transplant">Organ Transplant</option>
+            <option value="elective_surgery">Elective Surgery</option>
+            <option value="cardiac_surgery">Cardiac Surgery</option>
+            <option value="thalassemia">Thalassemia</option>
+            <option value="myelodysplastic_syndrome">
+              Myelodysplastic Syndrome
+            </option>
+            <option value="outpatient_transfusion">
+              Outpatient Transfusion
+            </option>
+            <option value="iron_deficiency_anemia">
+              Iron Deficiency Anemia
+            </option>
+            <option value="chemotherapy_support">Chemotherapy Support</option>
+            <option value="routine_transfusion">Routine Transfusion</option>
+            <option value="dialysis">Dialysis</option>
+            <option value="scheduled_procedure">Scheduled Procedure</option>
+            <option value="non_urgent_request">Non-Urgent Request</option>
+          </select>
+
+          <label for="address">Select Nearest Landmark:</label>
+          <select id="address" required>
+            <option value="">Select Landmark</option>
+            <option
+              value="Sri Aurobindo Marg, Ansari Nagar, New Delhi, Delhi 110029"
+            >
+              Sri Aurobindo Marg, Ansari Nagar
+            </option>
+            <option value="Ansari Nagar East, New Delhi, Delhi 110029">
+              Ansari Nagar East
+            </option>
+            <option
+              value="Jawaharlal Nehru Marg, Delhi Gate, New Delhi, Delhi 110002"
+            >
+              Jawaharlal Nehru Marg, Delhi Gate
+            </option>
+            <option value="Jawahar Lal Nehru Marg, Central, Delhi 110002">
+              Jawahar Lal Nehru Marg, Central
+            </option>
+            <option value="Baba Kharak Singh Marg, New Delhi, Delhi 110001">
+              Baba Kharak Singh Marg
+            </option>
+            <option value="Dilshad Garden, New Delhi, Delhi 110095">
+              Dilshad Garden
+            </option>
+          </select>
+
+          <button type="submit">Request Blood</button>
+        </form>
+        <div id="clientResult"></div>
+      </div>
+
+      <!-- Donor Section -->
+      <div id="donorSection" class="hidden">
+        <h2>Donor Registration</h2>
+        <form id="donorForm">
+          <label for="donorName">Donor Name:</label>
+          <input type="text" id="donorName" required />
+
+          <label for="donorBloodType">Blood Type:</label>
+          <select id="donorBloodType" required>
+            <option value="">Select</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+
+          <label for="donorAddress">Select Nearest Landmark:</label>
+          <select id="donorAddress" required>
+            <option value="">Select Landmark</option>
+            <option value="Hari Nagar, Clock Tower, New Delhi, Delhi 110064">
+              Hari Nagar, Clock Tower
+            </option>
+            <option value="Press Enclave Marg, Saket, New Delhi, Delhi 110017">
+              Press Enclave Marg, Saket
+            </option>
+            <option
+              value="Sarita Vihar, Delhi Mathura Road, New Delhi, Delhi 110076"
+            >
+              Sarita Vihar
+            </option>
+            <option value="Okhla Road, Sukhdev Vihar, New Delhi, Delhi 110025">
+              Okhla Road, Sukhdev Vihar
+            </option>
+          </select>
+
+          <button type="submit">Register Donor</button>
+        </form>
+        <div id="donorResult"></div>
+      </div>
+
+      <div class="image-gallery">
+        <img
+          src="https://www.redcross.org.au/globalassets/images/campaigns/blood-donation.jpg"
+          alt="Blood Donation"
+        />
+        <img
+          src="https://www.who.int/images/default-source/campaigns/health-topics/blood-donation/pcd-donors.jpg"
+          alt="Donors"
+        />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
